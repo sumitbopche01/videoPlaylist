@@ -1,5 +1,9 @@
+/**
+ * @description Function to shuffle the playlist provided
+ * @param {Array} playlist Its array of video objects
+ */
 const shuffle = (playlist) => {
-    
+
     let currentIndex = playlist.length;
     let randomIndex = 0;
     let temp ;
@@ -18,3 +22,4 @@ const shuffle = (playlist) => {
 module.exports = {
     shuffle,
 }
+

@@ -1,5 +1,12 @@
 const Video = require('../models/videoSchema');
 
+/**
+ * @description adds the video metadata in the database
+ * @param {String} title  title of the video
+ * @param {String} videoUrl video url
+ * @param {String} thumbnailUrl thumbnail image url
+ * @param {Integer} duration duration of the video in seconds
+ */
 const addVideo = (req, res, next)=> {
     let result = {};
     let status = 201;
@@ -18,9 +25,14 @@ const addVideo = (req, res, next)=> {
     })
 }
 
+/**
+ * @description Get the metadata of the video
+ * @param {String} _id _id of the video
+ */
 const getVideoData = (req, res, next) => {
     let result = {};
     let status = 200;
+
     const _id = req.params._id;
     Video.findById({_id})
     .then((videoData) => {
@@ -36,9 +48,15 @@ const getVideoData = (req, res, next) => {
     })
 }
 
+/**
+ * 
+ * @description Deletes the video 
+ * @param {String} _id _id of the video
+ */
 const deleteVideo = (req, res,next) => {
     let result = {};
     let status = 200;
+
     const _id = req.params._id;
     Video.findByIdAndDelete({_id})
     .then((response) => {
